@@ -95,6 +95,17 @@ gravar.addEventListener('click',function(){
 });
 //search music data from the database
 buscar.addEventListener('click',function(){
+    // Check if the ID field is empty
+    if (varId.value === "") {
+        alert("Por favor, preencha o campo Identificador.");
+        condo
+        return; // Stop the function if the ID is empty
+    }
+     // Check if the ID field is empty
+    if (varId.value === "") {
+     alert("Por favor, preencha o campo Identificador.");
+     return; // Stop the function if the ID is empty
+     }
      const dbref = ref(db);
      get(child(dbref, "Musicas/"+varId.value)).then((snapshot)=>{
           if(snapshot.exists()){
@@ -109,6 +120,11 @@ buscar.addEventListener('click',function(){
 });
 //update music data from the database
 atualizar.addEventListener('click',function(){
+    // Check if the ID field is empty
+    if (varId.value === "") {
+        alert("Por favor, preencha o campo Identificador.");
+        return; // Stop the function if the ID is empty
+    }
     update(ref(db, "Musicas/"+varId.value),{
           titulo:varTitulo.value,
           artista: varArtista.value
@@ -122,6 +138,11 @@ atualizar.addEventListener('click',function(){
 });
 //delete music data from the database
 excluir.addEventListener('click',function(){
+    // Check if the ID field is empty
+    if (varId.value === "") {
+        alert("Por favor, preencha o campo Identificador.");
+        return; // Stop the function if the ID is empty
+    }
      remove(ref(db, "Musicas/"+varId.value),{
            titulo:varTitulo.value,
            artista: varArtista.value
